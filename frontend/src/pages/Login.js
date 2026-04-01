@@ -17,8 +17,8 @@ function Login() {
     setLoading(true);
     try {
       const url = isSignup
-        ? "http://localhost:5000/api/auth/signup"
-        : "http://localhost:5000/api/auth/login";
+        ? "https://threew-backend-fhns.onrender.com/api/auth/signup"
+        : "https://threew-backend-fhns.onrender.com/api/auth/login";
 
       const res = await axios.post(url, form);
 
@@ -42,12 +42,10 @@ function Login() {
 
   return (
     <div style={styles.page}>
-      {/* Background blobs */}
       <div style={styles.blob1} />
       <div style={styles.blob2} />
 
       <div style={styles.card}>
-        {/* Logo */}
         <div style={styles.logoWrap}>
           <div style={styles.logoIcon}>✦</div>
           <span style={styles.logoText}>3W</span>
