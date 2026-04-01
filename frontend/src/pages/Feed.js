@@ -35,7 +35,7 @@ function Feed() {
   };
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:5000/api/posts/all");
+    const res = await axios.get("https://threew-backend-fhns.onrender.com/api/posts/all");
     setPosts(res.data);
   };
 
@@ -59,7 +59,7 @@ function Feed() {
       alert("Post cannot be empty");
       return;
     }
-    await axios.post("http://localhost:5000/api/posts/create", {
+    await axios.post("https://threew-backend-fhns.onrender.com/api/posts/create", {
       userId: user._id,
       username: user.username,
       text,
@@ -71,7 +71,7 @@ function Feed() {
   };
 
   const handleLike = async (postId) => {
-    await axios.put(`http://localhost:5000/api/posts/like/${postId}`, {
+    await axios.put(`https://threew-backend-fhns.onrender.com/api/posts/like/${postId}`, {
       username: user.username,
     });
     fetchPosts();
@@ -79,7 +79,7 @@ function Feed() {
 
   const handleDeletePost = async (postId) => {
     if (!window.confirm("Delete this post?")) return;
-    await axios.delete(`http://localhost:5000/api/posts/${postId}`, {
+    await axios.delete(`https://threew-backend-fhns.onrender.com/api/posts/${postId}`, {
       data: { username: user.username },
     });
     fetchPosts();
@@ -91,7 +91,7 @@ function Feed() {
       alert("Comment cannot be empty");
       return;
     }
-    await axios.put(`http://localhost:5000/api/posts/comment/${postId}`, {
+    await axios.put(`https://threew-backend-fhns.onrender.com/api/posts/comment/${postId}`, {
       username: user.username,
       text: ct,
     });
@@ -101,7 +101,7 @@ function Feed() {
 
   const handleDeleteComment = async (postId, commentId) => {
     await axios.delete(
-      `http://localhost:5000/api/posts/comment/${postId}/${commentId}`,
+      `https://threew-backend-fhns.onrender.com/api/posts/comment/${postId}/${commentId}`,
       { data: { username: user.username } }
     );
     fetchPosts();
