@@ -30,7 +30,13 @@ function Login() {
         setIsSignup(false);
       }
     } catch (err) {
-      alert(err.response?.data?.message || "Error");
+      if (err.response) {
+  alert(err.response.data.message || "Server error");
+} else if (err.request) {
+  alert("Server is waking up... please try again in 10 seconds");
+} else {
+  alert("Something went wrong");
+}
     } finally {
       setLoading(false);
     }
